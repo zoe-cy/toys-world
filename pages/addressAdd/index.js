@@ -1,135 +1,77 @@
 // pages/addressAdd/index.js
-const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    region: ['广东省', '广州市', '海珠区'],
-    customItem: '全部',
-    name:'',
-    mobile:'',
-    detailed:'',
-    addressIs:true,
-    _id:null
+    tel:13868284362,
+    name:"赵以诚",
+    site:"解放西路白云小区三弄二里1123456765432123456543386号",
+    province:["广东省","湖北省"],
+    cities:["广州市","武汉市"],
+    district:["白云区","洪山区"] ,
+    val:["浙江省","杭州市","西湖区"],
+    head:"全部"
   },
-  bindRegionChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    console.log(e.detail.value)
-    this.setData({
-      region: e.detail.value
-    })
-  },
-  bindKeyName: function (e) {
-    this.setData({
-      name: e.detail.value
-    })
-  },
-  bindKeyMobile: function (e) {
-    this.setData({
-      mobile: e.detail.value
-    })
-  },
-  bindKeyDetailed: function (e) {
-    this.setData({
-      detailed: e.detail.value
-    })
-  },
-  submitFun: function () {
-    if (this.data.addressIs){ //添加
-      app.http('v1/user/addCity', {
-        name: this.data.name,
-        mobile: this.data.mobile,
-        detailed: this.data.detailed,
-        city: this.data.region
-      }, 'POST')
-        .then(res => {
-          if (res.code == 200) {
-            wx.navigateBack({
-              delta: 1
-            })
-          }
-        })
-    }else{
-      app.http('v1/user/editCity', {
-        name: this.data.name,
-        mobile: this.data.mobile,
-        detailed: this.data.detailed,
-        city: this.data.region,
-        id: this.data._id
-      }, 'POST')
-        .then(res => {
-          if (res.code == 200) {
-            wx.navigateBack({
-              delta: 1
-            })
-          }
-        })
-    }
+  regionChange:function(e){
+      this.setData({
+        val:e.detail.value
+      })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (options.id){
-      this.setData({
-          region: options.city.split(','),
-          name: options.name,
-          mobile: options.mobile,
-          detailed: options.detailed,
-          _id: options.id,
-          addressIs:false
-      })
-    }
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   }
 })

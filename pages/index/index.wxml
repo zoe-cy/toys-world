@@ -1,61 +1,44 @@
-<!--index.wxml-->
-<scroll-view class="container" scroll-y  bindscrolltolower="lower">
- <swiper 
-    indicator-dots="{{indicatorDots}}"
-    autoplay="{{autoplay}}" 
-    interval="{{interval}}" 
-    duration="{{duration}}"
-    >
-      <block wx:for="{{imgUrls}}">
-        <swiper-item>
-          <image src='{{baseUrl+item.img_url}}' style='width:100%;height:220px;' />
-        </swiper-item>
-      </block>
-  </swiper>
-  <view class='icon'>
-    <navigator hover-class="none" url="/pages/list/index?title=生日&id=5b8e37e34b640a63b33272dc">
-      <image src='/images/birthday.png' mode="aspectFit"></image>
-      <text>生日</text>
-    </navigator>
-    <navigator hover-class="none" url="/pages/list/index?title=节日&id=5b8f45f2afb7c17788e11994">
-      <image src='/images/festival.png' mode="aspectFit"></image>
-      <text>节日</text>
-    </navigator>
-    <navigator hover-class="none" url="/pages/list/index?title=婚礼&id=5b8f4603afb7c17788e11996">
-      <image src='/images/wedding.png' mode="aspectFit"></image>
-      <text>婚礼</text>
-    </navigator>
-    <navigator hover-class="none" url="/pages/list/index?title=party&id=5b8f4612afb7c17788e11998">
-      <image src='/images/party.png' mode="aspectFit"></image>
-      <text>party</text>
-    </navigator>
-  </view>
-  <!-- <view class='title'>
-    <text class='cn'>主题</text>
-    <text class='en'>Theme</text>d5e7f5d5e7f5d5e7f5d5e7f5d5e7f5d5e7f5d5e7f5d5e7f5d5e7f5d5e7f5
-  </view> -->
-  <!-- <view class='img'>
-    <image src='/images/banner_2.png' mode="widthFix"></image>
-    <image src='/images/banner_3.png' mode="widthFix"></image>
-    <image src='/images/banner_4.png' mode="widthFix"></image>
-  </view> -->
-  <view class='title'>
-    <text class='cn'>猜你喜欢</text>
-    <text class='en'>Lovely</text>
-  </view>
-  <view class='list'>
-    <view class='item' wx:for="{{list}}">
-      <navigator hover-class="none" url="/pages/details/index?id={{item._id}}">
-        <image class='product' src='{{item.img}}'></image>
-        <text class='text'>{{item.title}}.</text>
-      </navigator>
-      <view class='price'>
-        <text>￥{{item.price}}</text>
-        <view  bindtap='addCart' data-item="{{item}}">
-        <image style='width:20px;height:20px;' src='/images/Shopping.png'></image>
-        </view>
-      </view>
-    </view>
-  </view>
-  <!-- <button bindtap='imgsc'> 上传</button> -->
-</scroll-view>
+<view>
+	<swiper indicator-dots="ture" autoplay="true" interval="4000" duration="8000" circular="true">
+		<block wx:for="{{arr}}" wx:key="id">
+			<swiper-item>
+				<image src="{{item.imgUrl}}"></image>
+			</swiper-item>
+		</block>
+	</swiper>
+	<view class="nav">
+		<navigator url="../list/index?title=早教益智" hover-class="none" class="item">
+			<view class="img iconfont icon-zhihui"></view>
+			<text class="font">早教益智</text>
+		</navigator>
+		<navigator url="../list/index?title=拼装积木" hover-class="none" class="item">
+			<view class="img iconfont icon-wodejimuhui"></view>
+			<text class="font">拼装积木</text>
+		</navigator>
+		<navigator url="../list/index?title=手工DIY" hover-class="none" class="item">
+			<view class="img iconfont icon-youximeishulei"></view>
+			<text class="font">手工DIY</text>
+		</navigator>
+		<navigator url="../list/index?title=桌面游戏" hover-class="none" class="item">
+			<view class="img iconfont icon-hudongyouxi"></view>
+			<text class="font">桌面游戏</text>
+		</navigator>
+	</view>
+	<view class="box bgc">
+		<view class="subtitle font">人气优选</view>
+	</view>
+	<view class="list">
+		<view class="goods" wx:for="{{list}}" wx:key="id">
+			<navigator hover-class="none" url="../details/index">
+				<image src="{{item.imgUrl}}"></image>
+				<text class="title">
+				{{item.title}}
+				</text>
+			</navigator>
+			<view class="font price">
+				¥{{item.price}}
+				<text class="iconfont icon-gouwuche1 font" bindtap="addCart"></text>
+			</view>
+		</view>
+	</view>
+</view>

@@ -1,0 +1,17 @@
+<!--pages/address/index.wxml-->
+<view>
+	<view wx:for="{{list}}" wx:key="id" class="pd">
+		<view class="list">
+			<view class="info">
+				<view>{{item.tel}} {{item.name}} 收</view>
+				<view class="site">{{item.address.province}} {{item.address.cities}} {{item.address.district}} {{item.address.site}}</view>
+			</view>
+			<view class="iconfont icon-xiexin"></view>
+			<view class="iconfont icon-duigou"></view>
+		</view>
+		<view class="bgc"></view>
+	</view>
+	<navigator class="footer" hover-class="none" url="../addressAdd/index">
+		<text>新增收货地址</text>
+	</navigator>
+</view>

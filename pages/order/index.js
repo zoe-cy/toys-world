@@ -1,33 +1,53 @@
-// pages/coupon/index.js
-const app = getApp()
+// pages/order/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    tabIndex: 1,
-    list: []
+    tabIndex:1,
+    list:[
+      {
+        id:1,
+        kind:"aaa",
+        title:"多重轨道3火8道3456789876543火车车套装1",
+        imgUrl:[
+          '../../images/11.jpg',
+          '../../images/11.jpg',
+          '../../images/11.jpg'
+        ],
+        num:1,
+        price:345,
+        soldCount:32
+      },
+      {
+        id:2,
+        kind:"bbb",
+        title:"多重轨道3火8道3456789876543火车车套装1",
+        imgUrl:[
+          '../../images/11.jpg',
+          '../../images/11.jpg',
+          '../../images/11.jpg'
+        ],
+        num:1,
+        price:345,
+        soldCount:32
+      }
+    ]
+  
   },
-  tabFun(e) {
+  toTab(e){
     this.setData({
       tabIndex: e.currentTarget.dataset.index
     })
-    this.getList()
-  },
-  getList(){
-    app.http('/v1/order/list', { state: this.data.tabIndex }).then(res => {
-      this.setData({list:res.data})
-    })
-  },
+ },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    this.setData({
-      tabIndex: options.type||1
-    })
-    this.getList()
+  onLoad: function (e) {
+     this.setData({
+       tabIndex: e.type || 1
+      })
   },
 
   /**

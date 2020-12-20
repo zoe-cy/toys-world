@@ -1,75 +1,56 @@
-.top{
- height: 40vh;
- border-bottom: 3px solid #dedede;
- background: #fff;
- display: flex;
- justify-content: center;
- align-items: center;
+.box {
+  height: 250px;
+  width: 100%;
+  position: relative;
 }
-.top .img{
-  width: 80px;
-  height: 80px;
-  overflow: hidden;
+.user {
+  position: absolute;
+  left:0;
+  right:0;
+  top:50%;
+  transform: translateY(-50%);
+  text-align: center;
+}
+.user view {
+  font-size: 24px;
+}
+.user image {
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
 }
 
-.top .text{
-  text-align: center;
-  font-size: 14px;
-  color: #333333;
+.bgc {
+  height: 1px;
 }
-.item{
+.line {
+  height: 2px;
+}
+.order {
+  line-height: 50px;
+  height: 50px;
+  font-size: 16px;
+}
+.order text{
+  float: right;
+  color: #9c9797;
+}
+.details {
+  height: 100px;
   display: flex;
-  line-height: 40px;
-  border-bottom: 1px solid #dedede;
-  background: #fff;
-  padding: 0 16px;
-}
-
-.item .left{
-  flex: 1 0 50%;
-  font-size: 14px;
-  color: #333333;
-}
-
-.item .right{
-  flex: 1 0 50%;
-  display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
-}
-
-.item image{
-  width: 8px;
-  height: 15px;
-}
-
-.item text{
-  font-size: 12px;
-  color: #999999;
-  padding-right: 10px;
-}
-
-.icon{
-  border-bottom:1px solid #EDEDED; 
-  display: flex;
-  padding: 12px 0;
-}
-.icon image{
-  display: block;
-  width: 30px;
-  height: 30px;
-  margin: 0 auto;
-  padding-top: 10px;
-}
-.icon text{
-  display: block;
   text-align: center;
-  width: 100%;
-  font-size: 14px;
-  color: #333;
-  padding-top: 10px;
 }
-.icon navigator{
-  flex: 1 0 25%;
+.details .item {
+  flex: 0 1 25%;
+}
+.details .item  .iconfont {
+  font-size: 26px;
+  line-height: 40px;
+  height: 40px;
+}
+.details .item  text {
+  line-height: 30px;
+  height: 30px;
 }
